@@ -4,14 +4,15 @@ from std_msgs.msg import Int16
 
 rclpy.init()
 node = Node("talker")
-pub = node.create_publisher(Int16, "countup", 10)
+pub = node.create_publisher(Person, "person", 10)
 n = 0
 
 
 def cb():
     global n
-    msg = Int16()
-    msg.data = n
+    msg = Person()
+    msg.name = "清川広夢"
+    msg.age = n
     pub.publish(msg)
     n += 1
 
